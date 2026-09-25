@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>JK Traditional Barbers | Barber Shop in Billericay, Essex &ndash; Walk-Ins Welcome</title>
 <meta name="title" content="JK Traditional Barbers | Barber Shop in Billericay, Essex &ndash; Walk-Ins Welcome">
-<meta name="description" content="Looking for a barber near me in Billericay? JK Traditional Barbers on Western Road offers haircuts, hot towel shaves, beard styling, facials, hair colouring and kids' cuts. Walk-ins welcome, Mon&ndash;Sat 9am&ndash;7pm. Serving Billericay, Wickford, Basildon &amp; Shenfield. Call 01277 514726.">
-<meta name="keywords" content="barber Billericay, barber near me, Men's Hair Dresser, Men's Hair Salon, barbers in Billericay Essex, traditional barbers Billericay, hot towel shave Essex, mens haircut Billericay, kids haircut Billericay, hair colouring Billericay, barber Wickford, barber Basildon, barber Shenfield, JK Traditional Barbers">
+<meta name="description" content="Looking for a men's hair dresser or men's hair salon in Billericay? JK Traditional Barbers on Western Road offers haircuts, hot towel shaves, beard styling, facials, hair colouring and kids' cuts. Walk-ins welcome, Mon&ndash;Sat 9am&ndash;7pm. Serving Billericay, Wickford, Basildon &amp; Shenfield. Call 01277 514726.">
+<meta name="keywords" content="men's hair dresser Billericay, men's hair salon Billericay, barbershop Billericay, barber Billericay, barber near me, Men's Hair Dresser, Men's Hair Salon, barbers in Billericay Essex, traditional barbers Billericay, hot towel shave Essex, mens haircut Billericay, kids haircut Billericay, hair colouring Billericay, barber Wickford, barber Basildon, barber Shenfield, JK Traditional Barbers">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.jktraditionalbarbers.com">
 
@@ -492,6 +492,30 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--brass-light); outl
   .gallery-grid a:nth-child(1){grid-column:span 2; grid-row:span 1;}
   .footer-grid{grid-template-columns:1fr; gap:28px;}
   .hero-facts{gap:20px;}
+
+  /* contact block mobile polish */
+  .hl-grid{
+    position:relative; overflow:hidden; border:1px solid var(--line); border-radius:var(--radius);
+  }
+  .hl-info{
+    padding:28px 18px 24px; text-align:center; background:rgba(42,36,25,.92);
+  }
+  .hl-info h3{font-size:clamp(1.6rem, 8vw, 2.2rem); margin-bottom:14px;}
+  .hours-table{margin:18px 0 26px;}
+  .hours-table td{display:block; width:100%; padding:10px 0; border-bottom:1px solid var(--line); text-align:center;}
+  .hours-table td:last-child{display:block; width:100%; text-align:center;}
+  .hl-info .contact-line{
+    display:block; width:100%; text-align:center; margin-bottom:18px;
+  }
+  .hl-info .contact-line .lbl{
+    display:block; min-width:0; margin-bottom:4px; font-size:13px; text-align:center; color:var(--smoke-dim);
+  }
+  .hl-info .contact-line span,
+  .hl-info .contact-line a{
+    display:block; width:100%; text-align:center; line-height:1.5;
+  }
+  .hl-info .hero-actions{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:22px;}
+  .hl-info .hero-actions .btn{width:100%; justify-content:center; padding:14px 12px; font-size:15px;}
 }
 
 /* ---------- mobile hero: CTAs visible on first screen ---------- */
@@ -935,16 +959,18 @@ a:focus-visible, button:focus-visible{outline:2px solid var(--brass-light); outl
 (function(){
   var btn = document.getElementById('hamburgerBtn');
   var menu = document.getElementById('mobileMenu');
-  btn.addEventListener('click', function(){
-    var open = menu.classList.toggle('open');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  menu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click', function(){
-      menu.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
+  if(btn && menu){
+    btn.addEventListener('click', function(){
+      var open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-  });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
   var reviewData = [
     {name:'Fraser Young', title:'A fantastic haircut and a welcoming atmosphere', text:'If you\'re in the market for a fantastic haircut, look no further than this barber shop. From the moment you walk in, you\'ll be greeted by friendly staff who are ready to make your experience exceptional. The barbers are true professionals, skilled at their craft and dedicated to making sure every customer walks out with a great cut. Whether you\'re looking for a classic style or a trendy new look, these barbers can deliver.\n\nOne of the barbers has a great sense of humor that will keep you laughing throughout your appointment. You might even say he\'s a cut above the rest!\n\nOverall, I highly recommend this barber shop for anyone looking for a top-notch cut in a welcoming and enjoyable atmosphere.'},
     {name:'Tristan', title:'My new go-to barbers', text:'Very friendly and professional staff, great pricing and really liked my haircut. Definitely my new go to barbers, I highly recommend them.'},
